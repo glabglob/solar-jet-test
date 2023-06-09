@@ -16,14 +16,29 @@
                 cursor: pointer;
                 color: #888888;
 
-                &:nth-child(4) {
+                &:nth-child(1) {
+                    margin-right: auto;
                     color: black;
+                    font-size: 16px;
+                }
+
+                &:nth-child(4) {
+                    color: white;
                 }
 
                 &:hover {
                     background-color: black;
                     color: white;
                     border: 0.1px solid black;
+                }
+
+                a {
+                    padding: 20px;
+                    color: black;
+
+                    &:hover {
+                        color: white;
+                    }
                 }
             }
         }
@@ -34,4 +49,8 @@
     background-color: black;
     color: white;
     border: 0.1px solid black;
+}
+
+.none {
+    display: none;
 }

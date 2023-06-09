@@ -1,23 +1,36 @@
-import shoeImg from './shoeImg.png'
-
 import './productCard.scss';
 
 interface ProductCardProps {
-
+    id: number;
+    name: string;
+    price: number;
+    image_path: string;
+    sale: number;
 }
 
-const ProductCard: React.FC<ProductCardProps> = () => {
+const ProductCard: React.FC<ProductCardProps> = (props: ProductCardProps) => {
+
     return (
         <div className="product__card-item">
+            {
+                (props.sale > 0) ?
+                    <div className="sale__flag">
+                        SALE 50%
+                    </div> :
+                    ''
+            }
             <figure>
                 <div className="img_container">
-                    <img className='img' src={shoeImg} alt="" />
+                    <img className='img' src={props.image_path} alt="" />
                 </div>
                 <figcaption className='img__description'>
-                    name of product
+                    {props.name}
                 </figcaption>
             </figure>
-            <span className='item__price'>$ 2000</span>
+            <p className='product__price'>
+                <span className={(props.sale > 0) ? 'item__price sale' : 'item__price'}>$ {props.price} </span>
+                <span className="item__sale_price">{(props.sale > 0) ? '$' + props.price / 2 : ''}</span>
+            </p>
         </div>
     );
 }

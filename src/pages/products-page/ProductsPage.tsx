@@ -20,7 +20,7 @@ const ProductsPage: React.FC = () => {
     const [data, setData] = useState<ProductsPageProps[]>([])
 
     useEffect(() => {
-        fetch('http://db.test/')
+        fetch('http://165.232.114.205/conectionDB.php')
             .then(response => response.json())
             .then(data => {
                 setData(data);

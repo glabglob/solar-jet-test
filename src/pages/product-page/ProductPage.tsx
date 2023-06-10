@@ -22,7 +22,7 @@ const ProductPage: React.FC = () => {
     const [selectedProduct, setSelectedProduct] = useState<ProductPageProps[]>([]);
 
     useEffect(() => {
-        fetch('http://db.test/')
+        fetch('http://165.232.114.205/conectionDB.php')
             .then(response => response.json())
             .then((data: ProductPageProps[]) => {
                 const filteredProduct = data.filter(item => item.id === id);

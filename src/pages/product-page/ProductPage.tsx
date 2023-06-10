@@ -18,6 +18,7 @@ interface ProductPageProps {
 const ProductPage: React.FC = () => {
 
     const { id } = useParams<any>();
+    console.log(id);
 
     const [selectedProduct, setSelectedProduct] = useState<ProductPageProps[]>([]);
 
@@ -25,13 +26,13 @@ const ProductPage: React.FC = () => {
         fetch('http://165.232.114.205/conectionDB.php')
             .then(response => response.json())
             .then((data: ProductPageProps[]) => {
-                const filteredProduct = data.filter(item => item.id === id);
+                const filteredProduct = data.filter(item => item.id == `${id}`);
                 setSelectedProduct(filteredProduct);
             })
             .catch(error => {
                 console.error(error);
             });
-    }, []);
+    }, [id]);
 
     return (
         <main>
